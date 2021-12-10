@@ -1,0 +1,70 @@
+class Module
+    {
+        // Private variables of Module class
+        private string name;        // name of the module
+        private string profSN;      // surname and name of the responsible professor
+        private int creditCount;    // number of credits for module
+        private string[] studSNGs;  // array of students where surname, name, groups are included
+        private int i;              // size of students array
+
+        // Constructor for Module class
+        public Module(string name, string profSN, int creditCount)
+        {
+            this.name = name;
+            this.profSN = profSN;
+            this.creditCount = creditCount;
+            studSNGs = new string[20];
+        }
+        
+        // Methods to return properties of Module class
+        public string GetName() { return name; }             // returns the name of the module
+        public string GetProfSN() { return profSN; }         // returns the responsible professor's surname and name
+        public int GetCreditCount() { return creditCount; }  // returns credit count for the module
+        public int GetNumberOfStudents() { return i; }       // returns number of students
+        public string GetStudSNG(int index)                  // returns data about certain student 
+        {
+            return (string)studSNGs[index];
+        }
+        
+        // Method to add the student to the array of students 
+        public void AddStudSNG(string studSNG)  
+        {
+            studSNGs[i++] = studSNG;
+        }
+
+        // Overriding ToString for further tabling
+        public override string ToString()
+        {
+            string line;
+            line = string.Format("{0, 10} {1, 29} {2, 8} {3, 30}\n", name, profSN, creditCount, studSNGs[0]);
+            for (int i = 1; i < GetNumberOfStudents(); i++)
+                line = line + string.Format("{0, 80}\n", studSNGs[i]);
+            return line;
+        }
+
+        // Overloaded operators <
+        public static bool operator <(Module module1, Module module2)
+        {
+            int p = String.Compare(module1.profSN, module2.profSN, StringComparison.CurrentCulture);
+            return p < 0;
+        }
+
+        // Overloaded operators >
+        public static bool operator >(Module module1, Module module2)
+        {
+            int p = String.Compare(module1.profSN, module2.profSN, StringComparison.CurrentCulture);
+            return p > 0;
+        }
+
+        // Overloaded operators ==
+        public static bool operator ==(Module module1, Module module2)
+        {
+            return module1.profSN == module2.profSN;
+        }
+
+        // Overloaded operators !=
+        public static bool operator !=(Module module1, Module module2)
+        {
+            return module1.profSN != module2.profSN;
+        }
+    }
