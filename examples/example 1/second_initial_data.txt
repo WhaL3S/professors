@@ -1,0 +1,3 @@
+// Initial data entered in the console
+Enter the professor’s full name
+1stProfSurname 1stProfName
