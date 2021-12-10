@@ -1,0 +1,58 @@
+Initial data
+--------------------------------------------------------------------------------
+  Module                 Prof              Credit Count          Students 
+--------------------------------------------------------------------------------
+1st_module    1stProfSurname 1stProfName        6        1SSurname 1SName 1Group
+                                                         2SSurname 2SName 2Group
+                                                         4SSurname 4SName 3Group
+                                                         5SSurname 5SName 1Group
+                                                         7SSurname 7SName 3Group
+
+2nd_module    2ndProfSurname 2ndProfName        9        1SSurname 1SName 1Group
+
+3rd_module    1stProfSurname 1stProfName        5        1SSurname 1SName 1Group
+                                                         3SSurname 3SName 2Group
+                                                         7SSurname 7SName 3Group
+
+4th_module    3rdProfSurname 3rdProfName        8        2SSurname 2SName 2Group
+                                                         4SSurname 4SName 3Group
+                                                         7SSurname 7SName 3Group
+
+5th_module    1stProfSurname 1stProfName        3        5SSurname 5SName 1Group
+
+6th_module    3rdProfSurname 3rdProfName        6        2SSurname 2SName 2Group
+                                                         4SSurname 4SName 3Group
+                                                         6SSurname 6SName 1Group
+                                                         7SSurname 7SName 3Group
+
+--------------------------------------------------------------------------------
+
+Sorted and Modules with only one students are removed
+--------------------------------------------------------------------------------
+  Module                 Prof              Credit Count          Students 
+--------------------------------------------------------------------------------
+1st_module    1stProfSurname 1stProfName        6        1SSurname 1SName 1Group
+                                                         2SSurname 2SName 2Group
+                                                         4SSurname 4SName 3Group
+                                                         5SSurname 5SName 1Group
+                                                         7SSurname 7SName 3Group
+
+3rd_module    1stProfSurname 1stProfName        5        1SSurname 1SName 1Group
+                                                         3SSurname 3SName 2Group
+                                                         7SSurname 7SName 3Group
+
+4th_module    3rdProfSurname 3rdProfName        8        2SSurname 2SName 2Group
+                                                         4SSurname 4SName 3Group
+                                                         7SSurname 7SName 3Group
+
+6th_module    3rdProfSurname 3rdProfName        6        2SSurname 2SName 2Group
+                                                         4SSurname 4SName 3Group
+                                                         6SSurname 6SName 1Group
+                                                         7SSurname 7SName 3Group
+
+--------------------------------------------------------------------------------
+
+Professor with the most number of modules: 1stProfSurname 1stProfName
+
+Searched professor: Flackman Jack
+There is no such professor
