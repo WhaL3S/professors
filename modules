@@ -1,0 +1,126 @@
+class Modules
+    {
+        // Constant max value 
+        const int CMax = 10;
+
+        // Variables for Modules
+        private Module[] SModules; // container for modules
+        private int n; // number of modules in Modules
+
+        // Constructor of the Modules container
+        public Modules()
+        {
+            n = 0;
+            SModules = new Module[CMax];
+        }
+        
+        // Method to add module to the container
+        public void AddModule(Module module) { SModules[n++] = module; }
+
+        // Method to get certain module from the container
+        public Module Get(int i) { return SModules[i]; }
+
+        // Method to get the number of modules in the container
+        public int Get() { return n; }
+
+        // Method to sort container by the surname and name of professors in an alphabetical order
+        public void Sort()
+        {
+            for (int i = 0; i < n - 1; i++)
+            {
+                Module min = SModules[i];
+                int im = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (SModules[j] < min)
+                    {
+                        min = SModules[j];
+                        im = j;
+                    }
+                }
+                SModules[im] = SModules[i];
+                SModules[i] = min;
+            }
+        }
+
+        // Method to remove modules which were chosen by only one student
+        public void Remove()
+        {
+            int m = 0;
+            for (int i = 0; i < n; i++)
+                if (SModules[i].GetNumberOfStudents() > 1)
+                    SModules[m++] = SModules[i];
+            n = m;
+        }
+
+        // Array of professors and its length
+        string[] arrayProfs = new string[CMax];
+        int counter = 0;
+
+        // Method to fill the array of professors without repetitions
+        public void FillArrayProfs()
+        {
+            Module min = SModules[0];
+            int temp = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (min != SModules[i])
+                {
+                    temp = i;
+                    arrayProfs[counter++] = min.GetProfSN();
+                    min = SModules[temp];
+                }
+                if (min == SModules[n])
+                {
+                    arrayProfs[counter++] = min.GetProfSN();
+                }
+            }
+        }
+
+        // Method to find the first professor with the most number of modules 
+        public string ProfMostModules()
+        {
+            int[] counter = new int[CMax];
+            int counterCounter = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (SModules[j] != SModules[i])
+                    {
+                        counter[counterCounter++] = j - i;
+                        i = j;
+                    }
+                    if (j + 1 == n)
+                    {
+                        if (SModules[j] == SModules[i])
+                        {
+                            counter[counterCounter++] = n - i;
+                            i = j;
+                        }
+                    }
+                }
+            }
+            int max = 0;
+            int maxIndex = 0;
+            for (int i = 0; i < counterCounter; i++)
+            {
+                if (max < counter[i])
+                {
+                    max = counter[i];
+                    maxIndex = i;
+                }
+            }
+            return arrayProfs[maxIndex];
+        }
+
+        // Method to search certain professor's modules 
+        public void Search(string professor)
+        {
+             int m = 0;
+             for (int i = 0; i < n; i++)
+                 if (SModules[i].GetProfSN() == professor)
+                       SModules[m++] = SModules[i];
+             n = m;
+        }
+    }
